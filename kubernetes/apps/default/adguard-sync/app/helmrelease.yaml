@@ -1,0 +1,61 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.prymal.info/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: adguard-sync
+  namespace: default
+spec:
+  interval: 15m
+  timeout: 10m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.0.3
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    controllers:
+      main:
+        annotations:
+          reloader.stakater.com/auto: "true"
+          configmap.reloader.stakater.com/reload: adguardhome-sync-settings
+        containers:
+          main:
+            image:
+              repository: ghcr.io/bakito/adguardhome-sync
+              tag: v0.4.15@sha256:57b39f62352eabfa80d4362996483fa7f8b00d4eb443d574e17389e7b85e2328
+            envFrom:
+              - secretRef:
+                  name: adguardhome-sync-secret
+            resources:
+              requests:
+                cpu: 5m
+                memory: 10Mi
+              limits:
+                memory: 50Mi
+    service:
+      main:
+        ports:
+          http:
+            port: 8080
+    persistence:
+      config:
+        enabled: true
+        type: configMap
+        name: adguardhome-sync-configmap
+        subPath: adguardhome-sync.yaml
+        mountPath: /config/adguardhome-sync.yaml
+        readOnly: false
