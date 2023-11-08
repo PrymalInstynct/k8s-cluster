@@ -39,6 +39,8 @@ spec:
       namespaceSelector:
         matchNames:
           - default
+          - flux-system
+          - kube-system
           - monitoring
     ingress:
       main:
