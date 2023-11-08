@@ -42,6 +42,7 @@ spec:
           - flux-system
           - kube-system
           - monitoring
+          - rook-ceph
     ingress:
       main:
         enabled: true
