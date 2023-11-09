@@ -93,7 +93,7 @@ spec:
     ingress:
       main:
         enabled: true
-        className: nginx
+        classname: internal
         annotations:
           hajimari.io/appName: "Sonarr HD"
           hajimari.io/icon: mdi:television-classic

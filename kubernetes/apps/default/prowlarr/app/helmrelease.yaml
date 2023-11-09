@@ -87,7 +87,7 @@ spec:
     ingress:
       main:
         enabled: true
-        className: nginx
+        className: internal
         annotations:
           hajimari.io/appName: "Prowlarr"
           hajimari.io/icon:  mdi:movie-search
