@@ -8,6 +8,7 @@ resources:
   - ./cloudnative-pg.yaml
   - ./coredns.yaml
   - ./csi-driver-nfs.yaml
+  - ./descheduler.yaml
   - ./external-dns.yaml
   - ./external-secrets.yaml
   - ./grafana.yaml
@@ -17,6 +18,7 @@ resources:
   - ./k8s-gateway.yaml
   - ./kubernetes-dashboard.yaml
   - ./metrics-server.yaml
+  - ./node-feature-discovery.yaml
   - ./prometheus-community.yaml
   - ./rook-ceph.yaml
   - ./stakater.yaml
