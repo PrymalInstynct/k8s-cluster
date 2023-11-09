@@ -127,6 +127,3 @@ spec:
       data:
         enabled: true
         type: emptyDir
-    nodeSelector:
-      matchExpressions:
-        - {key: node-role.kubernetes.io/control-plane, operator: DoesNotExist}
