@@ -76,3 +76,5 @@ spec:
       enabled: true
     serviceMonitor:
       enabled: true
+    nodeSelector:
+      amd.feature.node.kubernetes.io/gpu: true
