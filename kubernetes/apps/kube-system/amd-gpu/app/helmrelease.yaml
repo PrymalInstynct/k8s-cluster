@@ -26,14 +26,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    dp:
-      image:
-        repository: docker.io/rocm/k8s-device-plugin
-        tag: "1.25.2.5"
-    lbl:
-      image:
-        repository: docker.io/rocm/k8s-device-plugin
-        tag: "labeller-1.25.2.5"
     node_selector:
       feature.node.kubernetes.io/pci-0300_1002.present: "true"
       kubernetes.io/arch: amd64
