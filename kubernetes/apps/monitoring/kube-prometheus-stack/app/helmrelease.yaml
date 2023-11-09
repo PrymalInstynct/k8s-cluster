@@ -32,7 +32,7 @@ spec:
   dependsOn:
     - name: rook-ceph-cluster
       namespace: rook-ceph
-    - name: nginx-internal-controller
+    - name: nginx-internal
       namespace: networking
     - name: thanos
       namespace: monitoring
