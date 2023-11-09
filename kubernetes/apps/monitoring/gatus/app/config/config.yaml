@@ -23,20 +23,6 @@ connectivity:
     target: 1.1.1.1:53
     interval: 1m
 endpoints:
-  - name: harvester
-    group: "Infrastructure"
-    url: https://harvester.prymal.linux/dashboard/auth/login
-    interval: 1m
-    ui:
-      hide-hostname: true
-      hide-url: true
-    client:
-      dns-resolver: tcp://10.10.1.31:53
-      insecure: true
-    conditions:
-      - "[STATUS] == 200"
-    alerts:
-      - type: discord
   - name: synology
     group: "Infrastructure"
     url: http://scorpion.prymal.linux:5000/#/signin
@@ -63,7 +49,7 @@ endpoints:
       - "[STATUS] == 200"
     alerts:
       - type: discord
-  - name: "adguard home - rpi1"
+  - name: "adguard01"
     group: "Infrastructure"
     url: http://10.10.1.31
     interval: 1m
@@ -76,7 +62,7 @@ endpoints:
       - "[STATUS] == 200"
     alerts:
       - type: discord
-  - name: "adguard home - rpi2"
+  - name: "adguard02"
     group: "Infrastructure"
     url: http://10.10.1.32
     interval: 1m
@@ -89,7 +75,7 @@ endpoints:
       - "[STATUS] == 200"
     alerts:
       - type: discord
-  - name: k8s-control-prod-0
+  - name: k8s-control-0
     group: "Infrastructure"
     url: tcp://10.10.1.10:22
     interval: 1m
@@ -100,7 +86,7 @@ endpoints:
       - "[CONNECTED] == true"
     alerts:
       - type: discord
-  - name: k8s-control-prod-1
+  - name: k8s-control-1
     group: "Infrastructure"
     url: tcp://10.10.1.11:22
     interval: 1m
@@ -111,7 +97,7 @@ endpoints:
       - "[CONNECTED] == true"
     alerts:
       - type: discord
-  - name: k8s-control-prod-2
+  - name: k8s-control-2
     group: "Infrastructure"
     url: tcp://10.10.1.12:22
     interval: 1m
@@ -122,7 +108,7 @@ endpoints:
       - "[CONNECTED] == true"
     alerts:
       - type: discord
-  - name: k8s-worker-prod-3
+  - name: k8s-worker-3
     group: "Infrastructure"
     url: tcp://10.10.1.13:22
     interval: 1m
@@ -133,7 +119,7 @@ endpoints:
       - "[CONNECTED] == true"
     alerts:
       - type: discord
-  - name: k8s-worker-prod-4
+  - name: k8s-worker-4
     group: "Infrastructure"
     url: tcp://10.10.1.14:22
     interval: 1m
@@ -144,9 +130,20 @@ endpoints:
       - "[CONNECTED] == true"
     alerts:
       - type: discord
-  - name: dev01
+  - name: k8s-worker-5
     group: "Infrastructure"
-    url: tcp://10.10.111.200:22
+    url: tcp://10.10.1.15:22
+    interval: 1m
+    ui:
+      hide-hostname: true
+      hide-url: true
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: discord
+  - name: k8s-worker-6
+    group: "Infrastructure"
+    url: tcp://10.10.1.16:22
     interval: 1m
     ui:
       hide-hostname: true
