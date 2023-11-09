@@ -5,12 +5,12 @@ metadata:
   name: flux-webhook
   namespace: flux-system
   annotations:
-    external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+    external-dns.alpha.kubernetes.io/target: "external.prymal.info"
     hajimari.io/enable: "false"
 spec:
   ingressClassName: external
   rules:
-    - host: &host "flux-webhook.${SECRET_DOMAIN}"
+    - host: &host "flux-webhook.prymal.info"
       http:
         paths:
           - path: /hook/

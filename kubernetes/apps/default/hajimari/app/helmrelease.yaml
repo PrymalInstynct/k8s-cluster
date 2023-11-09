@@ -50,7 +50,7 @@ spec:
         annotations:
           hajimari.io/enable: "false"
         hosts:
-          - host: &host "hajimari.${SECRET_DOMAIN}"
+          - host: &host "hajimari.prymal.info"
             paths:
               - path: /
                 pathType: Prefix

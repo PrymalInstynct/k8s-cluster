@@ -11,7 +11,7 @@ data:
     endpoints:
       - name: rook
         group: "Web - Internal"
-        url: https://rook.${SECRET_DOMAIN}
+        url: https://rook.prymal.info
         interval: 1m
         ui:
           hide-hostname: true
