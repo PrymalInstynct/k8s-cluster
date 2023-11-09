@@ -93,7 +93,7 @@ spec:
     ingress:
       main:
         enabled: true
-        classname: internal
+        className: internal
         annotations:
           hajimari.io/appName: "Sonarr UHD"
           hajimari.io/icon: mdi:television-classic
