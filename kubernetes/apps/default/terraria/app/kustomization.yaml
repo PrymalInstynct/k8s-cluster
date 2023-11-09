@@ -6,6 +6,7 @@ namespace: default
 resources:
   - ./gatus.yaml
   - ./helmrelease.yaml
+  - ./pvc.yaml
 configMapGenerator:
   - name: terraria-configmap
     files:
