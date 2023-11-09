@@ -7,3 +7,11 @@ resources:
   - ./gatus.yaml
   - ./helmrelease.yaml
   - ./pvc.yaml
+configMapGenerator:
+  - name: terraria-configmap
+    files:
+      - ./config/serverconfig.txt
+generatorOptions:
+  disableNameSuffixHash: true
+  annotations:
+    kustomize.toolkit.fluxcd.io/substitute: disabled
