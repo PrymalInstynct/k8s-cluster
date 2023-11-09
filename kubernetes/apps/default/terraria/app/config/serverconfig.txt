@@ -1,0 +1,7 @@
+worldname=zimzamfam
+worldpath=/root/.local/share/Terraria/Worlds
+world=/root/.local/share/Terraria/Worlds/zimzamfam.wld
+autocreate=2
+difficulty=0
+maxplayers=8
+port=7777
