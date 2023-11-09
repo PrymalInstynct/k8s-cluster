@@ -42,5 +42,3 @@ spec:
       dataDir:
         enabled: true
         existingClaim: minecraft-data
-    nodeSelector:
-      amd.feature.node.kubernetes.io/gpu: true
