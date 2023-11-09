@@ -109,13 +109,14 @@ spec:
       bittorrent:
         controller: main
         type: LoadBalancer
-        annotations:
-          io.cilium/lb-ipam-ips: 10.10.1.102
+        externalTrafficPolicy: Cluster
         ports:
           bittorrent:
             enabled: true
             port: *port-bt
             protocol: TCP
+        annotations:
+          io.cilium/lb-ipam-ips: 10.10.1.102
     ingress:
       main:
         enabled: true
