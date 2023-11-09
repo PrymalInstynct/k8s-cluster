@@ -1,0 +1,44 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.prymal.info/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: minecraft
+  namespace: default
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: minecraft
+      version: 4.11.0
+      sourceRef:
+        kind: HelmRepository
+        name: minecraft-server-charts
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    minecraftServer:
+      eula: "TRUE"
+      memory: 4096M
+      serviceAnnotations:
+        io.cilium/lb-ipam-ips: "10.10.1.104"
+      serviceType: LoadBalancer
+      loadBalancerIP: 10.10.1.104
+      externalTrafficPolicy: Cluster
+    resources:
+      requests:
+        memory: 2Gi
+        cpu: 500m
+    persistence:
+      dataDir:
+        enabled: true
+        existingClaim: minecraft-data

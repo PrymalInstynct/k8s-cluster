@@ -20,7 +20,7 @@ resources:
   - ./k8s-gateway.yaml
   - ./kubernetes-dashboard.yaml
   - ./metrics-server.yaml
-  # - ./minecraft-server-charts.yaml
+  - ./minecraft-server-charts.yaml
   - ./node-feature-discovery.yaml
   - ./prometheus-community.yaml
   - ./rook-ceph.yaml
