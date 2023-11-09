@@ -37,10 +37,13 @@ spec:
         containers:
           main:
             image:
-              repository: docker.io/ryshe/terraria
-              tag: vanilla-1.4.4.9
-            command: ["mono"]
-            args: ["TerrariaServer.exe", "-config", "/config/serverconfig.txt"]
+              repository: docker.io/ackvf/terraria
+              tag: latest
+            env:
+              DOWNLOAD_VERSION: 1449
+              FILENAME_CONFIG: serverconfig.txt
+              FILENAME_WORLD: world.wld
+              FILENAME_BANLIST: banlist.txt
             resources:
               requests:
                 cpu: 500m
@@ -53,14 +56,6 @@ spec:
             runAsGroup: 568
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
-        statefulset:
-          volumeClaimTemplates:
-            - name: config
-              accessMode: ReadWriteOnce
-              size: 1Gi
-              storageClass: ceph-block
-              globalMounts:
-                - path: /config
     service:
       main:
         enabled: false
@@ -76,16 +71,8 @@ spec:
             port: 7777
             protocol: TCP
     persistence:
-      world:
+      config:
         enabled: true
-        existingClaim: terraria-world
-        defaultMode: 0775
+        existingClaim: terraria-config
         globalMounts:
-          - path: /terraria-server/Worlds
-      config-file:
-        type: configMap
-        name: terraria-configmap
-        globalMounts:
-          - path: /config/serverconfig.txt
-            subPath: serverconfig.txt
-            readOnly: true
+          - path: /terraria/config
