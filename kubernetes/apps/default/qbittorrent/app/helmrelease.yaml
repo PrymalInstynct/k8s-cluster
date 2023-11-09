@@ -90,6 +90,7 @@ spec:
                           operator: In
                           values: ["sabnzbd"]
                     topologyKey: kubernetes.io/hostname
+        pod:
           securityContext:
             runAsUser: 568
             runAsGroup: 568
