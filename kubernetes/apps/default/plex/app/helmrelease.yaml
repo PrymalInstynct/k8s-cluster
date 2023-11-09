@@ -45,11 +45,11 @@ spec:
               TZ: America/Denver
             resources:
               requests:
-                amd.com/gpu: 1
+                amd.com/gpu: "1"
                 cpu: 2000m
                 memory: 2Gi
               limits:
-                amd.com/gpu: 1
+                amd.com/gpu: "1"
                 memory: 16Gi
         pod:
           nodeSelector:
