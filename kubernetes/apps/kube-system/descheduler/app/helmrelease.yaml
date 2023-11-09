@@ -81,7 +81,7 @@ spec:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
           - matchExpressions:
-            - key: amd.feature.node.kubernetes.io/gpu
+            - key: kubernetes.io/hostname
               operator: In
               values:
-              - true
+              - k8s-worker
