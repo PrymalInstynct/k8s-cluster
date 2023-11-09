@@ -42,3 +42,10 @@ spec:
       dataDir:
         enabled: true
         existingClaim: minecraft-data
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: amd.feature.node.kubernetes.io/gpu
+              operator: Exists
