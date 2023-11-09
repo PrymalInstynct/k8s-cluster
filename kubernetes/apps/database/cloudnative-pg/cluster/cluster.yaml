@@ -51,7 +51,7 @@ spec:
         wal:
           compression: bzip2
           maxParallel: 8
-        destinationPath: s3://postgresql/
+        destinationPath: s3://postgres/
         endpointURL: http://scorpion.prymal.linux:9000
         s3Credentials:
           accessKeyId:
