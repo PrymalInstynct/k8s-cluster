@@ -76,5 +76,12 @@ spec:
       enabled: true
     serviceMonitor:
       enabled: true
-    nodeSelector:
-      amd.feature.node.kubernetes.io/gpu: true
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: amd.feature.node.kubernetes.io/gpu
+              operator: In
+              values:
+              - true
