@@ -39,12 +39,8 @@ spec:
             image:
               repository: docker.io/ryshe/terraria
               tag: vanilla-1.4.4.9
-            env:
-              WORLD_FILENAME: zimzamfam.wld
-              LOGPATH: /terraria-server/logs
-              WORLDPATH: /root/.local/share/Terraria/Worlds
-              CONFIGPATH: /config
-              CONFIG_FILENAME: serverconfig.txt
+            command: ["mono"]
+            args: ["TerrariaServer.exe", "-config", "/config/serverconfig.txt"]
             resources:
               requests:
                 cpu: 500m
