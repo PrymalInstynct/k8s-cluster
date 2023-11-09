@@ -37,18 +37,15 @@ spec:
               repository: ghcr.io/morphy2k/rss-forwarder
               tag: 0.6.1
             env:
-              TZ: "${TIMEZONE}"
+              TZ: America/Denver
             probes:
               liveness: &disabled
                 enabled: false
               readiness: *disabled
               startup: *disabled
-            resources:
-              requests:
-                cpu: 5m
-                memory: 10M
-              limits:
-                memory: 64M
+            nodeSelector:
+              matchExpressions:
+                - {key: node-role.kubernetes.io/control-plane, operator: DoesNotExist}
     service:
       main: *disabled
     ingress:
