@@ -127,7 +127,6 @@ spec:
       data:
         enabled: true
         type: emptyDir
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128M
+    nodeSelector:
+      matchExpressions:
+        - {key: node-role.kubernetes.io/control-plane, operator: DoesNotExist}
