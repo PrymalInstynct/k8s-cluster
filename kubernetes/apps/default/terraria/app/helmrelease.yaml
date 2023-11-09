@@ -81,7 +81,7 @@ spec:
         existingClaim: terraria-world
         defaultMode: 0775
         globalMounts:
-          - path: /root/.local/share/Terraria/Worlds
+          - path: /terraria-server/Worlds
       config-file:
         type: configMap
         name: terraria-configmap
