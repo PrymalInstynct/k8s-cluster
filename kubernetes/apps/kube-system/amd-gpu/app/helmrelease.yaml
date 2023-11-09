@@ -13,7 +13,7 @@ spec:
       version: 0.10.0
       sourceRef:
         kind: HelmRepository
-        name: node-feature-discovery
+        name: amd-gpu-helm
         namespace: flux-system
   maxHistory: 2
   install:
