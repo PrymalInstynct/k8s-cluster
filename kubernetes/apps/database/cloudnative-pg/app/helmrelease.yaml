@@ -32,6 +32,10 @@ spec:
   values:
     crds:
       create: true
-    config:
-      data:
-        INHERITED_ANNOTATIONS: kyverno.io/ignore
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: amd.feature.node.kubernetes.io/gpu
+              operator: Exists
