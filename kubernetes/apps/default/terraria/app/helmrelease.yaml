@@ -53,6 +53,14 @@ spec:
             runAsGroup: 568
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
+        statefulset:
+          volumeClaimTemplates:
+            - name: config
+              accessMode: ReadWriteOnce
+              size: 1Gi
+              storageClass: ceph-block
+              globalMounts:
+                - path: /config
     service:
       main:
         enabled: false
@@ -71,10 +79,12 @@ spec:
       world:
         enabled: true
         existingClaim: terraria-world
-      config:
+        defaultMode: 0775
+        globalMounts:
+          - path: /root/.local/share/Terraria/Worlds
+      config-file:
         type: configMap
         name: terraria-configmap
-        defaultMode: 0644
         globalMounts:
           - path: /config/serverconfig.txt
             subPath: serverconfig.txt
