@@ -28,25 +28,6 @@ spec:
   values:
     nfd:
       enabled: true
-    labeller:
-      enabled: false
-    namespace: kube-system
-    dp:
-      image:
-        repository: docker.io/rocm/k8s-device-plugin
-        # Overrides the image tag whose default is the chart appVersion.
-        tag: "1.25.2.5"
-      resources: {}
-    lbl:
-      image:
-        repository: docker.io/rocm/k8s-device-plugin
-        tag: "labeller-1.25.2.5"
-      resources: {}
-    securityContext:
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop:
-        - ALL
     node_selector:
       amd.feature.node.kubernetes.io/gpu: true
       kubernetes.io/arch: amd64
