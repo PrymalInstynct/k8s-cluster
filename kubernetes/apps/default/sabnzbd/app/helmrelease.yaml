@@ -67,12 +67,17 @@ spec:
               readiness: *probes
               startup:
                 enabled: false
-            resources:
-              requests:
-                cpu: 10m
-                memory: 2Gi
-              limits:
-                memory: 8Gi
+            nodeSelector:
+              amd.feature.node.kubernetes.io/gpu: true
+            affinity:
+              podAntiAffinity:
+                requiredDuringSchedulingIgnoredDuringExecution:
+                  - labelSelector:
+                      matchExpressions:
+                        - key: app.kubernetes.io/name
+                          operator: In
+                          values: ["qbittorrent"]
+                    topologyKey: kubernetes.io/hostname
         pod:
           securityContext:
             runAsUser: 568

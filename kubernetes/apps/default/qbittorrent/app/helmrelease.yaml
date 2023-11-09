@@ -79,22 +79,17 @@ spec:
               QBT_BitTorrent__Session__DHTEnabled: false
               QBT_BitTorrent__Session__PeXEnabled: false
               QBT_BitTorrent__Scheduler__days: EveryDay
-            resources:
-              requests:
-                cpu: 10m
-                memory: 2Gi
-              limits:
-                memory: 8Gi
-        pod:
-          affinity:
-            podAntiAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-                - labelSelector:
-                    matchExpressions:
-                      - key: app.kubernetes.io/name
-                        operator: In
-                        values: ["sabnzbd"]
-                  topologyKey: kubernetes.io/hostname
+            nodeSelector:
+              amd.feature.node.kubernetes.io/gpu: true
+            affinity:
+              podAntiAffinity:
+                requiredDuringSchedulingIgnoredDuringExecution:
+                  - labelSelector:
+                      matchExpressions:
+                        - key: app.kubernetes.io/name
+                          operator: In
+                          values: ["sabnzbd"]
+                    topologyKey: kubernetes.io/hostname
           securityContext:
             runAsUser: 568
             runAsGroup: 568

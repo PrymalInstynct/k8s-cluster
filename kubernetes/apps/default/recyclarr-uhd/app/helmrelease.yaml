@@ -44,12 +44,8 @@ spec:
             envFrom:
               - secretRef:
                   name: recyclarr-uhd-secret
-            resources:
-              requests:
-                cpu: 10m
-                memory: 64M
-              limits:
-                memory: 128M
+            nodeSelector:
+              amd.feature.node.kubernetes.io/gpu: true
         pod:
           securityContext:
             runAsUser: 568

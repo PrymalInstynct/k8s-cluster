@@ -46,12 +46,8 @@ spec:
             envFrom:
               - secretRef:
                   name: unpackerr-uhd-secret
-            resources:
-              requests:
-                cpu: 10m
-                memory: 1Gi
-              limits:
-                memory: 4Gi
+            nodeSelector:
+              amd.feature.node.kubernetes.io/gpu: true
         pod:
           SecurityContext:
             runAsUser: 568

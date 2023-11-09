@@ -47,6 +47,8 @@ spec:
                 memory: 256Mi
               limits:
                 memory: 4Gi
+            nodeSelector:
+              amd.feature.node.kubernetes.io/gpu: true
     service:
       main:
         enabled: false
