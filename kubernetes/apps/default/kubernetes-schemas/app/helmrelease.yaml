@@ -35,12 +35,9 @@ spec:
             image:
               repository: ghcr.io/onedr0p/kubernetes-schemas
               tag: latest@sha256:effdedcb96684e86a4d3f2f4fff54c1a9e2185405d0c599df188bc9a427ec867
-            resources:
-              requests:
-                cpu: 5m
-                memory: 10M
-              limits:
-                memory: 64M
+            nodeSelector:
+              matchExpressions:
+                - {key: node-role.kubernetes.io/control-plane, operator: DoesNotExist}
         pod:
           securityContext:
             runAsUser: 568
