@@ -27,9 +27,9 @@ spec:
     keepHistory: false
   values:
     nfd:
-      enabled: false
-    labeller:
       enabled: true
+    labeller:
+      enabled: false
     namespace: kube-system
     dp:
       image:
