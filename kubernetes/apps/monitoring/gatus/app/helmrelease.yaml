@@ -70,12 +70,8 @@ spec:
               GATUS_CONFIG_PATH: /config
               CUSTOM_WEB_PORT: &port 80
             envFrom: *envFrom
-            resources:
-              requests:
-                cpu: 10m
-                memory: 256M
-              limits:
-                memory: 512M
+            nodeSelector:
+              amd.feature.node.kubernetes.io/gpu: true
           config-sync:
             image: *configSyncImage
             env:

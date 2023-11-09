@@ -51,12 +51,8 @@ spec:
               readiness: *probes
               startup:
                 enabled: false
-            resources:
-              requests:
-                cpu: 5m
-                memory: 10M
-              limits:
-                memory: 64M
+            nodeSelector:
+              amd.feature.node.kubernetes.io/gpu: true
         pod:
           securityContext:
             runAsUser: 568
