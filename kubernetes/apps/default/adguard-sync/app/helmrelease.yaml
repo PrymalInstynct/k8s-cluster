@@ -46,6 +46,10 @@ spec:
                 memory: 10Mi
               limits:
                 memory: 50Mi
+        pod:
+          nodeSelector:
+            matchExpressions:
+              - {key: node-role.kubernetes.io/control-plane, operator: DoesNotExist}
     service:
       main:
         ports:
