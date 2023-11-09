@@ -9,7 +9,7 @@ spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-amd-device-plugin
+    - name: cluster-apps-intel-device-plugin
   path: ./kubernetes/apps/default/plex/app
   prune: true
   sourceRef:
