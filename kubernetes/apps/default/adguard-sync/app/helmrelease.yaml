@@ -41,8 +41,7 @@ spec:
               - secretRef:
                   name: adguardhome-sync-secret
             nodeSelector:
-              matchExpressions:
-                - {key: node-role.kubernetes.io/control-plane, operator: DoesNotExist}
+              amd.feature.node.kubernetes.io/gpu: true
     service:
       main:
         ports:
