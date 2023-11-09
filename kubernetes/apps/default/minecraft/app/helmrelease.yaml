@@ -42,3 +42,6 @@ spec:
       dataDir:
         enabled: true
         existingClaim: minecraft-data
+    nodeSelector:
+      matchExpressions:
+        - {key: node-role.kubernetes.io/control-plane, operator: DoesNotExist}
