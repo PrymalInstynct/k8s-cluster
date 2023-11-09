@@ -11,7 +11,7 @@ resources:
   - ./discord-template-notifier/ks.yaml
   - ./hajimari/ks.yaml
   - ./kubernetes-schemas/ks.yaml
-  - ./minecraft/ks.yaml
+  # - ./minecraft/ks.yaml
   - ./overseerr/ks.yaml
   - ./plex/ks.yaml
   - ./prowlarr/ks.yaml
