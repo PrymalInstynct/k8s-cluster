@@ -45,8 +45,19 @@ spec:
             image:
               repository: docker.io/rocm/k8s-device-plugin
               tag: labeller-1.25.2.5
+            workingDir: /root
             command: ["/root/k8s-node-labeller"]
-            args: ["-vram", "-cu-count", "-simd-count", "-device-id", "-family"]
+            args:
+              [
+                "-logtostderr=true",
+                "-stderrthreshold=INFO",
+                "-v=5",
+                "-vram",
+                "-cu-count",
+                "-simd-count",
+                "-device-id",
+                "-family",
+              ]
             env:
               TZ: America/Denver
               DS_NODE_NAME:
