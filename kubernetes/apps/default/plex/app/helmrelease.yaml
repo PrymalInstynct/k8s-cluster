@@ -26,7 +26,7 @@ spec:
   uninstall:
     keepHistory: false
   dependsOn:
-    - name: intel-device-plugin-gpu
+    - name: amd-device-plugin
       namespace: kube-system
     - name: rook-ceph-cluster
       namespace: rook-ceph
@@ -45,15 +45,15 @@ spec:
               TZ: America/Denver
             resources:
               requests:
-                gpu.intel.com/i915: 1
+                amd.com/gpu: 1
                 cpu: 1500m
                 memory: 2Gi
               limits:
-                gpu.intel.com/i915: 1
+                amd.com/gpu: 1
                 memory: 10Gi
         pod:
           nodeSelector:
-            intel.feature.node.kubernetes.io/gpu: "true"
+            amd.feature.node.kubernetes.io/gpu: "true"
           securityContext:
             runAsUser: 568
             runAsGroup: 568
