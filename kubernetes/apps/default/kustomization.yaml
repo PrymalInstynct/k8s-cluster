@@ -10,7 +10,7 @@ resources:
   - ./adguard-sync/ks.yaml
   - ./discord-template-notifier/ks.yaml
   - ./hajimari/ks.yaml
-  - ./jellyfin/ks.yaml
+  # - ./jellyfin/ks.yaml
   - ./kubernetes-schemas/ks.yaml
   - ./minecraft/ks.yaml
   - ./overseerr/ks.yaml
