@@ -105,6 +105,11 @@ spec:
           - hosts:
               - *host
     persistence:
+      config:
+        enabled: true
+        existingClaim: jellyfin-config
+        globalMounts:
+          - path: /config
       transcode:
         type: emptyDir
         globalMounts:
