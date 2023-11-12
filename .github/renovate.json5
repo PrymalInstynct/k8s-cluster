@@ -73,7 +73,6 @@
         "(^|/)kubernetes/.+\\.ya?ml(\\.j2)?(\\.j2)?$"
       ],
       "matchStrings": [
-        // Example: `k3s_release_version: "v1.27.3+k3s1"`
         "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?\"(?<currentValue>.*)\"\n",
         "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?-\\s(.*?)\/(?<currentValue>[^/]+)\/[^/]+\n",
         "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( registryUrl=(?<registryUrl>\\S+))?\n.*?\"(?<currentValue>.*)\"\n",
@@ -81,7 +80,8 @@
       ],
       "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-    },
+    }
+  ],
   "packageRules": [
     {
       "description": "Loose versioning for non-semver packages",
