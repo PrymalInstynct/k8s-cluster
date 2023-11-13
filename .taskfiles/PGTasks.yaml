@@ -31,12 +31,12 @@ tasks:
   up:
     desc: Scale up the apps requiring postgres
     cmds:
-      - kubectl scale deployment/gatus --replicas=0 -n monitoring
-      - kubectl scale deployment/prowlarr --replicas=0 -n default
-      - kubectl scale deployment/radarr-hd --replicas=0 -n default
-      - kubectl scale deployment/sonarr-hd --replicas=0 -n default
-      - kubectl scale deployment/radarr-uhd --replicas=0 -n default
-      - kubectl scale deployment/sonarr-uhd --replicas=0 -n default
+      - kubectl scale deployment/gatus --replicas=1 -n monitoring
+      - kubectl scale deployment/prowlarr --replicas=1 -n default
+      - kubectl scale deployment/radarr-hd --replicas=1 -n default
+      - kubectl scale deployment/sonarr-hd --replicas=1 -n default
+      - kubectl scale deployment/radarr-uhd --replicas=1 -n default
+      - kubectl scale deployment/sonarr-uhd --replicas=1 -n default
 
   resume:
     desc: Resume the apps requiring postgres
