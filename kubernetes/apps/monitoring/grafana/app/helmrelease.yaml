@@ -182,7 +182,7 @@ spec:
           gnetId: 13654
           revision: 2
           datasource:
-            - { name: DS_PROMETHEUS, value: Prometheus }
+            - Prometheus
       ceph:
         ceph-cluster:
           # renovate: depName="Ceph Cluster"
