@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.prymal.info/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -24,22 +25,30 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-  dependsOn:
-    - name: local-path-provisioner
-      namespace: kube-system
   values:
-    deploymentStrategy:
-      type: Recreate
-    admin:
-      existingSecret: grafana-admin-secret
+    extraInitContainers:
+      - name: 01-init-db
+        image: ghcr.io/onedr0p/postgres-init:14.9
+        imagePullPolicy: IfNotPresent
+        envFrom:
+          - secretRef:
+              name: &secret grafana-secret
+    replicas: 2
     env:
+      GF_FEATURE_TOGGLES_ENABLE: publicDashboards
+      GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS: natel-discrete-panel,pr0ps-trackmap-panel,panodata-map-panel
+      GF_DATE_FORMATS_USE_BROWSER_LOCALE: true
       GF_EXPLORE_ENABLED: true
-      GF_SERVER_ROOT_URL: "https://grafana.prymal.info"
+      GF_SERVER_ROOT_URL: https://grafana.prymal.info
+    envFromSecrets:
+      - name: *secret
     grafana.ini:
       analytics:
         check_for_updates: false
         check_for_plugin_updates: false
         reporting_enabled: false
+      news:
+        news_feed_enabled: false
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
@@ -111,9 +120,9 @@ spec:
             type: prometheus
             uid: prometheus
             access: proxy
-            url: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
+            url: http://thanos-query-frontend.monitoring.svc.cluster.local:9090
             jsonData:
-              prometheusType: Prometheus
+              prometheusType: Thanos
             isDefault: true
           - name: Alertmanager
             type: alertmanager
@@ -138,6 +147,9 @@ spec:
         cert-manager:
           url: https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
           datasource: Prometheus
+        external-secrets:
+          url: https://raw.githubusercontent.com/external-secrets/external-secrets/main/docs/snippets/dashboard.json
+          datasource: Prometheus
         cloudnative-pg:
           url: https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/docs/src/samples/monitoring/grafana-dashboard.json
           datasource: Prometheus
@@ -145,6 +157,11 @@ spec:
           # renovate: depName="Node Exporter Full"
           gnetId: 1860 # https://grafana.com/grafana/dashboards/1860?tab=revisions
           revision: 31
+          datasource: Prometheus
+        redis:
+          # renovate: depName="Redis Dashboard for Prometheus Redis Exporter 1.x"
+          gnetId: 763
+          revision: 5
           datasource: Prometheus
         unpackerr:
           # renovate: depName="Unpackerr"
@@ -284,6 +301,13 @@ spec:
         enabled: true
         searchNamespace: ALL
         labelValue: ""
+    plugins:
+      - grafana-clock-panel
+      - grafana-piechart-panel
+      - grafana-worldmap-panel
+      - natel-discrete-panel
+      - pr0ps-trackmap-panel
+      - vonage-status-panel
     serviceMonitor:
       enabled: true
     ingress:
@@ -297,7 +321,13 @@ spec:
         - hosts:
             - *host
     persistence:
-      enabled: true
-      storageClassName: local-path
+      enabled: false
     testFramework:
       enabled: false
+    topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/name: grafana
