@@ -193,6 +193,11 @@ spec:
           gnetId: 10530
           revision: 1
           datasource: Prometheus
+        smartctl4:
+          # renovate: depName="SMART info"
+          gnetId: 14062
+          revision: 2
+          datasource: Prometheus
       ceph:
         ceph-cluster:
           # renovate: depName="Ceph Cluster"
