@@ -113,7 +113,7 @@ spec:
         enabled: true
         ingressClassName: internal
         annotations:
-          hajimari.io/app-name: Loki
+          hajimari.io/appName: Loki
           hajimari.io/icon: mdi:math-log
         hosts:
           - host: &host loki.prymal.info
