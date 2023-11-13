@@ -182,13 +182,12 @@ spec:
         #   gnetId: 13654
         #   revision: 2
         #   datasource:
-        #     - Prometheus
+        #     - { name: DS_PROMETHEUS, value: Prometheus }
         smartctl:
           # renovate: depName="SMART disk data"
           gnetId: 10664
           revision: 2
-          datasource:
-            - Prometheus
+          datasource: Prometheus
       ceph:
         ceph-cluster:
           # renovate: depName="Ceph Cluster"
