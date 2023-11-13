@@ -114,6 +114,7 @@ spec:
         apiVersion: 1
         deleteDatasources:
           - { name: Alertmanager, orgId: 1 }
+          - { name: Loki, orgId: 1 }
           - { name: Prometheus, orgId: 1 }
         datasources:
           - name: Prometheus
@@ -124,6 +125,13 @@ spec:
             jsonData:
               prometheusType: Thanos
             isDefault: true
+          - name: Loki
+            type: loki
+            uid: loki
+            access: proxy
+            url: http://loki-gateway.monitoring.svc.cluster.local
+            jsonData:
+              maxLines: 250
           - name: Alertmanager
             type: alertmanager
             uid: alertmanager
@@ -135,28 +143,19 @@ spec:
       default:
         cloudflared:
           # renovate: depName="Cloudflare Tunnels (cloudflared)"
-          gnetId: 17457 # https://grafana.com/grafana/dashboards/17457?tab=revisions
+          gnetId: 17457
           revision: 6
           datasource:
             - { name: DS_PROMETHEUS, value: Prometheus }
         external-dns:
           # renovate: depName="External-dns"
-          gnetId: 15038 # https://grafana.com/grafana/dashboards/15038?tab=revisions
+          gnetId: 15038
           revision: 1
-          datasource: Prometheus
-        cert-manager:
-          url: https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
-          datasource: Prometheus
-        external-secrets:
-          url: https://raw.githubusercontent.com/external-secrets/external-secrets/main/docs/snippets/dashboard.json
-          datasource: Prometheus
-        cloudnative-pg:
-          url: https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/docs/src/samples/monitoring/grafana-dashboard.json
           datasource: Prometheus
         node-exporter-full:
           # renovate: depName="Node Exporter Full"
-          gnetId: 1860 # https://grafana.com/grafana/dashboards/1860?tab=revisions
-          revision: 31
+          gnetId: 1860
+          revision: 33
           datasource: Prometheus
         redis:
           # renovate: depName="Redis Dashboard for Prometheus Redis Exporter 1.x"
@@ -169,10 +168,14 @@ spec:
           revision: 1
           datasource:
             - { name: DS_PROMETHEUS, value: Prometheus }
-        smartctl:
-          # renovate: depName="S.M.A.R.T Dashboard"
-          gnetID: 13654
-          revision: 2
+        cloudnative-pg:
+          url: https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/docs/src/samples/monitoring/grafana-dashboard.json
+          datasource: Prometheus
+        cert-manager:
+          url: https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
+          datasource: Prometheus
+        external-secrets:
+          url: https://raw.githubusercontent.com/external-secrets/external-secrets/main/docs/snippets/dashboard.json
           datasource: Prometheus
       ceph:
         ceph-cluster:
@@ -321,7 +324,7 @@ spec:
       annotations:
         hajimari.io/icon: simple-icons:grafana
       hosts:
-        - &host "grafana.prymal.info"
+        - &host grafana.prymal.info
       tls:
         - hosts:
             - *host

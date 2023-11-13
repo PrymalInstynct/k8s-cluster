@@ -112,6 +112,9 @@ spec:
       ingress:
         enabled: true
         ingressClassName: internal
+      annotations:
+        hajimari.io/name: Loki
+        hajimari.io/icon: simple-icons:loki
         hosts:
           - host: &host loki.prymal.info
             paths:
