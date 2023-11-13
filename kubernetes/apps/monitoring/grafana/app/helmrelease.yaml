@@ -177,27 +177,6 @@ spec:
         external-secrets:
           url: https://raw.githubusercontent.com/external-secrets/external-secrets/main/docs/snippets/dashboard.json
           datasource: Prometheus
-        smartctl:
-          # renovate: depName="S.M.A.R.T Dashboard"
-          gnetId: 13654
-          revision: 2
-          datasource:
-            - { name: DS_PROMETHEUS, value: Prometheus }
-        smartctl2:
-          # renovate: depName="SMART disk data"
-          gnetId: 10664
-          revision: 2
-          datasource: Prometheus
-        smartctl3:
-          # renovate: depName="S.M.A.R.T disk monitoring for Prometheus Dashboard"
-          gnetId: 10530
-          revision: 1
-          datasource: Prometheus
-        smartctl4:
-          # renovate: depName="SMART info"
-          gnetId: 14062
-          revision: 2
-          datasource: Prometheus
       ceph:
         ceph-cluster:
           # renovate: depName="Ceph Cluster"
