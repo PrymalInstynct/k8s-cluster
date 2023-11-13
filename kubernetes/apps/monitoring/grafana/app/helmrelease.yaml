@@ -169,6 +169,11 @@ spec:
           revision: 1
           datasource:
             - { name: DS_PROMETHEUS, value: Prometheus }
+        smartctl:
+          # renovate: depName="S.M.A.R.T Dashboard"
+          gnetID: 13654
+          revision: 2
+          datasource: Prometheus
       ceph:
         ceph-cluster:
           # renovate: depName="Ceph Cluster"
