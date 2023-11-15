@@ -6,6 +6,8 @@ radarr:
   uhd-bluray-web:
     base_url: http://radarr-uhd.default.svc.cluster.local
     api_key: !env_var RADARR_API_KEY
+    delete_old_custom_formats: true
+    replace_existing_custom_formats: true
 
     include:
       # Comment out any of the following includes to disable them
@@ -73,6 +75,8 @@ sonarr:
   web-2160p-v4:
     base_url: http://sonarr-uhd.default.svc.cluster.local
     api_key: !env_var SONARR_API_KEY
+    delete_old_custom_formats: true
+    replace_existing_custom_formats: true
 
     include:
       # Comment out any of the following includes to disable them
