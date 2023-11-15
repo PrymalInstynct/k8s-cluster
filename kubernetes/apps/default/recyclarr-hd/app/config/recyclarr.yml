@@ -44,6 +44,10 @@ radarr:
           - name: HD Bluray + WEB
             score: 0
 
+    quality_profiles:
+      - name: HD Bluray + WEB
+        min_format_score: 5
+
 # Instance Definition
 # This section defines your instance type, name, and authentication
 # Documentation: https://recyclarr.dev/wiki/yaml/config-reference/#basic
@@ -59,3 +63,7 @@ sonarr:
       - template: sonarr-quality-definition-series
       - template: sonarr-v4-quality-profile-web-1080p
       - template: sonarr-v4-custom-formats-web-1080p
+
+    quality_profiles:
+      - name: WEB-1080p
+        min_format_score: 5

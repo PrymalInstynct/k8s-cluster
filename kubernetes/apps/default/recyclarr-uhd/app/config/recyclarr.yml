@@ -68,6 +68,11 @@ radarr:
         quality_profiles:
           - name: UHD Bluray + WEB
             score: -10000
+
+    quality_profiles:
+      - name: UHD Bluray + WEB
+        min_format_score: 5
+
 # Instance Definition
 # This section defines your instance type, name, and authentication
 # Documentation: https://recyclarr.dev/wiki/yaml/config-reference/#basic
@@ -100,3 +105,7 @@ sonarr:
         quality_profiles:
           - name: WEB-2160p
             score: 10
+
+    quality_profiles:
+      - name: WEB-2160p
+        min_format_score: 5
