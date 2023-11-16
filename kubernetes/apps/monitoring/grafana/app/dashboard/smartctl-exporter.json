@@ -557,7 +557,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "smartprom_temperature_celsius_raw",
+          "expr": "smartctl_device_temperature",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -568,7 +568,7 @@
         },
         {
           "exemplar": true,
-          "expr": "smartprom_power_cycle_count_raw",
+          "expr": "smartctl_device_power_cycle_count",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -579,7 +579,7 @@
         },
         {
           "exemplar": true,
-          "expr": "smartprom_power_on_hours_raw",
+          "expr": "smartctl_device_power_on_seconds",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -757,7 +757,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "smartprom_temperature_celsius_raw",
+          "expr": "smartctl_device_temperature",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
