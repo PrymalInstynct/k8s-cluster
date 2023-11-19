@@ -80,6 +80,10 @@ spec:
                 cpu: 40
                 memory: 25
                 pods: 20
+              targetThresholds:
+                cpu: 45
+                memory: 30
+                pods: 25
     service:
       enabled: true
     serviceMonitor:
