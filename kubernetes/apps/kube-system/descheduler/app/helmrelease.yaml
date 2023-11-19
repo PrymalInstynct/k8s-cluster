@@ -72,7 +72,7 @@ spec:
               - requiredDuringSchedulingIgnoredDuringExecution
         RemovePodsViolatingInterPodAntiAffinity:
           enabled: true
-        LowNodeUtilization:
+        HighNodeUtilization:
           enabled: true
           params:
             nodeResourceUtilizationThresholds:
