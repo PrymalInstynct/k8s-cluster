@@ -79,11 +79,11 @@ spec:
               thresholds:
                 cpu: 5
                 memory: 10
-                pods: 70
+                pods: 30
               targetThresholds:
                 cpu: 8
                 memory: 20
-                pods: 70
+                pods: 40
     service:
       enabled: true
     serviceMonitor:
