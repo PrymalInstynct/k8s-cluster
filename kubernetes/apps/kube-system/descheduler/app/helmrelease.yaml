@@ -72,14 +72,14 @@ spec:
               - requiredDuringSchedulingIgnoredDuringExecution
         RemovePodsViolatingInterPodAntiAffinity:
           enabled: true
-        HighNodeUtilization:
+        LowNodeUtilization:
           enabled: true
           params:
             nodeResourceUtilizationThresholds:
               thresholds:
-                cpu: 10
-                memory: 20
-                pods: 30
+                cpu: 40
+                memory: 25
+                pods: 20
     service:
       enabled: true
     serviceMonitor:
