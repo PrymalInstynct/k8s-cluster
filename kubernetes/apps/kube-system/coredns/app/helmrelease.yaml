@@ -58,7 +58,7 @@ spec:
           - name: prometheus
             parameters: 0.0.0.0:9153
           - name: forward
-            parameters: . /etc/resolv.conf
+            parameters: . 10.10.1.31 10.10.1.32 /etc/resolv.conf
           - name: cache
             parameters: 30
           - name: loop
