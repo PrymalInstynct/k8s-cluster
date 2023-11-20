@@ -5,7 +5,7 @@ metadata:
   name: cluster-apps-kubevirt
   namespace: flux-system
 spec:
-  path: ./kubernetes/apps/kube-system/kube-virt/app
+  path: ./kubernetes/apps/kube-system/kubevirt/app
   prune: true
   sourceRef:
     kind: GitRepository
