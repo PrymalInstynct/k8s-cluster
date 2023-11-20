@@ -3,9 +3,9 @@ apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   labels:
-    kubevirt.io/vm: vm-fedora-datavolume
+    kubevirt.io/vm: vm-fedora
     kubevirt.io/os: linux
-  name: vm-fedora-datavolume
+  name: vm-fedora
 spec:
   dataVolumeTemplates:
   - metadata:
@@ -25,11 +25,11 @@ spec:
   template:
     metadata:
       labels:
-        kubevirt.io/vm: vm-datavolume
+        kubevirt.io/vm: vm-fedora
     spec:
       domain:
         cpu:
-          cores: 2
+          cores: 4
         devices:
           disks:
           - disk:
@@ -43,7 +43,7 @@ spec:
           type: ""
         resources:
           requests:
-            memory: 2048M
+            memory: 4096M
       terminationGracePeriodSeconds: 0
       volumes:
       - dataVolume:
@@ -52,7 +52,7 @@ spec:
       - cloudInitNoCloud:
           userData: |
             #cloud-config
-            hostname: vm1
+            hostname: vm-fedora
             ssh_pwauth: True
             disable_root: false
             ssh_authorized_keys:
