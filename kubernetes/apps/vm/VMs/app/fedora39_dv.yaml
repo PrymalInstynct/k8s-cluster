@@ -1,5 +1,5 @@
 ---
-apiVersion: kubevirt.io/v1alpha3
+apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   labels:
@@ -16,7 +16,7 @@ spec:
         resources:
           requests:
             storage: 20G
-        storageClassName: hdd
+        storageClassName: ceph-block
       source:
         http:
           url: "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Cloud/x86_64/images/Fedora-Cloud-Base-39-1.5.x86_64.raw.xz"
@@ -37,6 +37,7 @@ spec:
         resources:
           requests:
             memory: 2048M
+            cpu: 2
       terminationGracePeriodSeconds: 0
       volumes:
       - dataVolume:
