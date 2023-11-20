@@ -4,6 +4,7 @@ kind: VirtualMachine
 metadata:
   labels:
     kubevirt.io/vm: vm-fedora-datavolume
+    kubevirt.io/os: linux
   name: vm-fedora-datavolume
 spec:
   dataVolumeTemplates:
@@ -27,19 +28,33 @@ spec:
         kubevirt.io/vm: vm-datavolume
     spec:
       domain:
+        cpu:
+          cores: 2
         devices:
           disks:
           - disk:
               bus: virtio
-            name: datavolumevolume
+            name: disk0
+          - cdrom:
+              bus: sata
+              readonly: true
+            name: cloudinitdisk
         machine:
           type: ""
         resources:
           requests:
             memory: 2048M
-            cpu: 2
       terminationGracePeriodSeconds: 0
       volumes:
       - dataVolume:
           name: fedora-dv
-        name: datavolumevolume
+        name: disk0
+      - cloudInitNoCloud:
+          userData: |
+            #cloud-config
+            hostname: vm1
+            ssh_pwauth: True
+            disable_root: false
+            ssh_authorized_keys:
+            - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDkUIA+iNKkeGq/x5gZMNTfCtypnkN0OFOl6Zt+6Z2Q+73yz6zUz5pNXS+KoF1nwtAWvGcFegHQvwPTAm3GoNl15vMb94ji2cIrET9nGszK7poormIWntt1N2Acf6rvbunIIQgwUMPTjwG+rx6IAdYBYavlxZw1BrFb+ePflo00HghInJMhEwpdwBNTu4XjLE54Plx3cMPDmNNTsKnxa3KJwUMk3nndxt5gJkMY8F1wNx36SGiKp/8PMua5NODd+mSFKKVW4raB6pG5IUPeMvdkw7GKJG60hdxxV4Sa5v5SIhoUdZKu7l7O3DKjK8bctIreL34JPnOaz6jMNTVdC0GB9J7KltU6hQXnxl1bFyDj1fclyEBfa7kwNl+4+D2U8gYWYeW82r9SPRx43v+/1urCmYTVKavLMhbMpflaZDG1EnVoqKAhe2Z5Poza9gTqgfzhHxAlGdF5Au5QpCU5FPPwKH1j0Kxn3AxgA0pG6yoPvXDf5VCKSrohGHBmAC+sFMin8GzeIpWuaMkWgFt6UxxoFY2igUb2MeYXaXPCkXcxW7ahF64eZTv55Qoz4B1LvT1YqnHV4LP/KQj2bjgXOZ0EJ6n90EFMA4kbdoHqZ5VndKo3CW7DkmX7An6MAvAYzYWWCNNPAV4Ck08byB+vkajQAA9w26o8QpJVKQfLI3pqfQ==
+        name: cloudinitdisk
