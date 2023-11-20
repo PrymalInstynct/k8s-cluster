@@ -55,4 +55,4 @@ spec:
   - accessModes:
     - ReadWriteOnce
     volumeMode: Filesystem
-  cloneStrategy: csi-clone
+  cloneStrategy: copy
