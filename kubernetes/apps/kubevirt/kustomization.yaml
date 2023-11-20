@@ -6,4 +6,4 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./kubevirt/ks.yaml
-  - ./VMs/ks.yaml
+  # - ./VMs/ks.yaml
