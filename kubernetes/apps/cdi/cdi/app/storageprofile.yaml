@@ -1,0 +1,68 @@
+---
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: StorageProfile
+metadata:
+  name: ceph-block
+spec:
+  claimPropertySets:
+  - accessModes:
+    - ReadWriteMany
+    - ReadWriteOnce
+    volumeMode: Block
+  cloneStrategy: csi-clone
+  provisioner: rook-ceph.rbd.csi.ceph.com
+  storageClass: ceph-block
+---
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: StorageProfile
+metadata:
+  name: ceph-bucket
+spec:
+  claimPropertySets:
+  - accessModes:
+    - ReadWriteMany
+    - ReadWriteOnce
+    volumeMode: Block
+  cloneStrategy: csi-clone
+  provisioner: rook-ceph.rbd.csi.ceph.com
+  storageClass: ceph-block
+---
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: StorageProfile
+metadata:
+  name: ceph-filesystem
+spec:
+  claimPropertySets:
+  - accessModes:
+    - ReadWriteMany
+    - ReadWriteOnce
+    volumeMode: Filesystem
+  cloneStrategy: copy
+  provisioner: rook-ceph.rbd.csi.ceph.com
+  storageClass: ceph-filesystem
+---
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: StorageProfile
+metadata:
+  name: local-path
+spec:
+  claimPropertySets:
+  - accessModes:
+    - ReadWriteOnce
+    volumeMode: Filesystem
+  cloneStrategy: copy
+  provisioner: cluster.local/local-path-provisioner
+  storageClass: local-path
+---
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: StorageProfile
+metadata:
+  name: media
+spec:
+  claimPropertySets:
+  - accessModes:
+    - ReadWriteOnce
+    volumeMode: Filesystem
+  cloneStrategy: copy
+  provisioner: nfs
+  storageClass: media
