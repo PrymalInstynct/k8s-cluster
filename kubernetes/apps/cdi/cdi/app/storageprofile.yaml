@@ -10,7 +10,6 @@ spec:
     - ReadWriteOnce
     volumeMode: Block
   cloneStrategy: csi-clone
-  provisioner: rook-ceph.rbd.csi.ceph.com
   storageClass: ceph-block
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
@@ -24,7 +23,6 @@ spec:
     - ReadWriteOnce
     volumeMode: Block
   cloneStrategy: csi-clone
-  provisioner: rook-ceph.rbd.csi.ceph.com
   storageClass: ceph-block
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
@@ -38,7 +36,6 @@ spec:
     - ReadWriteOnce
     volumeMode: Filesystem
   cloneStrategy: copy
-  provisioner: rook-ceph.rbd.csi.ceph.com
   storageClass: ceph-filesystem
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
@@ -51,7 +48,6 @@ spec:
     - ReadWriteOnce
     volumeMode: Filesystem
   cloneStrategy: copy
-  provisioner: cluster.local/local-path-provisioner
   storageClass: local-path
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
@@ -64,5 +60,4 @@ spec:
     - ReadWriteOnce
     volumeMode: Filesystem
   cloneStrategy: copy
-  provisioner: nfs
   storageClass: media
