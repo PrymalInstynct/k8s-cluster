@@ -6,7 +6,6 @@ metadata:
 spec:
   claimPropertySets:
   - accessModes:
-    - ReadWriteMany
     - ReadWriteOnce
     volumeMode: Block
   cloneStrategy: csi-clone
