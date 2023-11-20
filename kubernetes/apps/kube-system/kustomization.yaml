@@ -9,7 +9,7 @@ resources:
   - ./descheduler/ks.yaml
   - ./external-secrets/ks.yaml
   - ./intel-device-plugin/ks.yaml
-  - ./kubevirt/ks.yaml
+  # - ./kubevirt/ks.yaml
   - ./local-path-provisioner/ks.yaml
   - ./metrics-server/ks.yaml
   - ./multus-cni/ks.yaml
