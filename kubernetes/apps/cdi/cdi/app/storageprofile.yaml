@@ -10,7 +10,6 @@ spec:
     - ReadWriteOnce
     volumeMode: Block
   cloneStrategy: csi-clone
-  storageClass: ceph-block
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: StorageProfile
@@ -23,7 +22,6 @@ spec:
     - ReadWriteOnce
     volumeMode: Block
   cloneStrategy: csi-clone
-  storageClass: ceph-block
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: StorageProfile
@@ -36,7 +34,6 @@ spec:
     - ReadWriteOnce
     volumeMode: Filesystem
   cloneStrategy: copy
-  storageClass: ceph-filesystem
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: StorageProfile
@@ -48,7 +45,6 @@ spec:
     - ReadWriteOnce
     volumeMode: Filesystem
   cloneStrategy: copy
-  storageClass: local-path
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: StorageProfile
@@ -60,4 +56,3 @@ spec:
     - ReadWriteOnce
     volumeMode: Filesystem
   cloneStrategy: copy
-  storageClass: media
