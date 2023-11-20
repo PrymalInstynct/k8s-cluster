@@ -5,6 +5,7 @@ metadata:
   labels:
     kubevirt.io/vm: vm-fedora
     kubevirt.io/os: linux
+    kubevirt.io/kubevirt.io/allow-pod-bridge-network-live-migration: true
   name: vm-fedora
 spec:
   dataVolumeTemplates:
