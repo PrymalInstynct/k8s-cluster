@@ -10,3 +10,8 @@ kubeconfig
 *.key
 # Ansible
 .venv*
+# Certs
+*.pem
+*.key
+*.csr
+*.srl
