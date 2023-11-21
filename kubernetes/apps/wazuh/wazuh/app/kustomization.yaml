@@ -3,23 +3,23 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: wazuh
 
-secretGenerator:
-  - name: indexer-certs
-    files:
-      - certs/indexer_cluster/root-ca.pem
-      - certs/indexer_cluster/node.pem
-      - certs/indexer_cluster/node-key.pem
-      - certs/indexer_cluster/dashboard.pem
-      - certs/indexer_cluster/dashboard-key.pem
-      - certs/indexer_cluster/admin.pem
-      - certs/indexer_cluster/admin-key.pem
-      - certs/indexer_cluster/filebeat.pem
-      - certs/indexer_cluster/filebeat-key.pem
-  - name: dashboard-certs
-    files:
-      - certs/dashboard_http/cert.pem
-      - certs/dashboard_http/key.pem
-      - certs/indexer_cluster/root-ca.pem
+# secretGenerator:
+#   - name: indexer-certs
+#     files:
+#       - certs/indexer_cluster/root-ca.pem
+#       - certs/indexer_cluster/node.pem
+#       - certs/indexer_cluster/node-key.pem
+#       - certs/indexer_cluster/dashboard.pem
+#       - certs/indexer_cluster/dashboard-key.pem
+#       - certs/indexer_cluster/admin.pem
+#       - certs/indexer_cluster/admin-key.pem
+#       - certs/indexer_cluster/filebeat.pem
+#       - certs/indexer_cluster/filebeat-key.pem
+#   - name: dashboard-certs
+#     files:
+#       - certs/dashboard_http/cert.pem
+#       - certs/dashboard_http/key.pem
+#       - certs/indexer_cluster/root-ca.pem
 
 configMapGenerator:
   - name: indexer-conf
@@ -37,15 +37,15 @@ configMapGenerator:
 resources:
   - secrets/externalsecret.yaml
 
-  - wazuh_managers/wazuh-cluster-svc.yaml
-  - wazuh_managers/wazuh-master-svc.yaml
-  - wazuh_managers/wazuh-workers-svc.yaml
-  - wazuh_managers/wazuh-master-sts.yaml
-  - wazuh_managers/wazuh-worker-sts.yaml
+  # - wazuh_managers/wazuh-cluster-svc.yaml
+  # - wazuh_managers/wazuh-master-svc.yaml
+  # - wazuh_managers/wazuh-workers-svc.yaml
+  # - wazuh_managers/wazuh-master-sts.yaml
+  # - wazuh_managers/wazuh-worker-sts.yaml
 
-  - indexer_stack/wazuh-indexer/indexer-svc.yaml
-  - indexer_stack/wazuh-indexer/cluster/indexer-api-svc.yaml
-  - indexer_stack/wazuh-indexer/cluster/indexer-sts.yaml
+  # - indexer_stack/wazuh-indexer/indexer-svc.yaml
+  # - indexer_stack/wazuh-indexer/cluster/indexer-api-svc.yaml
+  # - indexer_stack/wazuh-indexer/cluster/indexer-sts.yaml
 
-  - indexer_stack/wazuh-dashboard/dashboard-svc.yaml
-  - indexer_stack/wazuh-dashboard/dashboard-deploy.yaml
+  # - indexer_stack/wazuh-dashboard/dashboard-svc.yaml
+  # - indexer_stack/wazuh-dashboard/dashboard-deploy.yaml
