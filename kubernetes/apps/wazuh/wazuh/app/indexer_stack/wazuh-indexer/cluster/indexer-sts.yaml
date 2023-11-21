@@ -59,7 +59,7 @@ spec:
             privileged: true
       containers:
         - name: wazuh-indexer
-          image: 'wazuh/wazuh-indexer:4.6.0'
+          image: 'wazuh/wazuh-indexer:4.5.0'
           resources:
             limits:
               cpu: 500m
@@ -83,11 +83,6 @@ spec:
                   fieldPath: metadata.namespace
             - name: DISABLE_INSTALL_DEMO_CONFIG
               value: 'true'
-            - name: INDEXER_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: indexer-cred
-                  key: password
           securityContext:
             capabilities:
               add: ["SYS_CHROOT"]
