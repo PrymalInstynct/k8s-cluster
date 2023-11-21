@@ -1,13 +1,22 @@
+# Copyright (C) 2019, Wazuh Inc.
+#
+# This program is a free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public
+# License (version 2) as published by the FSF - Free Software
+# Foundation.
+
+# Indexer service: API
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: indexer-rest
+  name: indexer
   namespace: wazuh
   labels:
     app: wazuh-indexer
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: wazuh-indexer.prymal.info
+    external-dns.alpha.kubernetes.io/hostname: wazuh-api.prymal.info
     io.cilium/lb-ipam-ips: 10.10.1.109
 spec:
   type: LoadBalancer
