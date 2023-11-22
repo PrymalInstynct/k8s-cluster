@@ -63,7 +63,7 @@ spec:
               QBT_BitTorrent__Session__QueueingSystemEnabled: true
               QBT_BitTorrent__Session__MaxActiveDownloads: 2
               QBT_BitTorrent__Session__MaxActiveUploads: 500
-              QBT_BitTorrent__Session__MaxActiveTorrents: 501
+              QBT_BitTorrent__Session__MaxActiveTorrents: 502
               QBT_BitTorrent__Session__GlobalMaxRatio: 5
               QBT_BitTorrent__Session__GlobalMaxSeedingMinutes: 43200
               QBT_BitTorrent__Session__GlobalDLSpeedLimit: 10240
