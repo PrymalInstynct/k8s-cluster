@@ -56,22 +56,22 @@ spec:
               QBT_BitTorrent__Session__TempPath: /media/downloads/incomplete
               QBT_BitTorrent__Session__TempPathEnabled: true
               QBT_BitTorrent__Session__SubcategoriesEnabled: true
-              QBT_BitTorrent__Session__MaxConnections: 50
-              QBT_BitTorrent__Session__MaxConnectionsPerTorrent: 10
-              QBT_BitTorrent__Session__MaxUploads: 500
-              QBT_BitTorrent__Session__MaxUploadsPerTorrent: 2
+              QBT_BitTorrent__Session__MaxConnections: 500
+              QBT_BitTorrent__Session__MaxConnectionsPerTorrent: 100
+              QBT_BitTorrent__Session__MaxUploads: 5000
+              QBT_BitTorrent__Session__MaxUploadsPerTorrent: 20
               QBT_BitTorrent__Session__QueueingSystemEnabled: true
-              QBT_BitTorrent__Session__MaxActiveDownloads: 1
+              QBT_BitTorrent__Session__MaxActiveDownloads: 2
               QBT_BitTorrent__Session__MaxActiveUploads: 500
               QBT_BitTorrent__Session__MaxActiveTorrents: 501
-              QBT_BitTorrent__Session__GlobalMaxRatio: 2
+              QBT_BitTorrent__Session__GlobalMaxRatio: 5
               QBT_BitTorrent__Session__GlobalMaxSeedingMinutes: 43200
-              QBT_BitTorrent__Session__GlobalDLSpeedLimit: 5120
-              QBT_BitTorrent__Session__GlobalUPSpeedLimit: 2048
+              QBT_BitTorrent__Session__GlobalDLSpeedLimit: 10240
+              QBT_BitTorrent__Session__GlobalUPSpeedLimit: 10240
               QBT_BitTorrent__Session__BandwidthSchedulerEnabled: true
               QBT_BitTorrent__Session__UseAlternativeGlobalSpeedLimit: true
-              QBT_BitTorrent__Session__AlternativeGlobalDLSpeedLimit: 2048
-              QBT_BitTorrent__Session__AlternativeGlobalUPSpeedLimit: 1024
+              QBT_BitTorrent__Session__AlternativeGlobalDLSpeedLimit: 5120
+              QBT_BitTorrent__Session__AlternativeGlobalUPSpeedLimit: 5120
               QBT_BitTorrent__Session__DisableAutoTMMByDefault: false
               QBT_BitTorrent__Session__DisableAutoTMMTriggers__CategorySavePathChanged: false
               QBT_BitTorrent__Session__DisableAutoTMMTriggers__DefaultSavePathChanged: false
