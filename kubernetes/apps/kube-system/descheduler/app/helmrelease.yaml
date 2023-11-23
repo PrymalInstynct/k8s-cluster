@@ -81,7 +81,7 @@ spec:
                 memory: 30
                 pods: 35
               targetThresholds:
-                cpu: 50
+                cpu: 51
                 memory: 25
                 pods: 50
     service:
