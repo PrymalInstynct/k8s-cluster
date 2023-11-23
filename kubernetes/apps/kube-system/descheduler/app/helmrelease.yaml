@@ -77,13 +77,13 @@ spec:
           params:
             nodeResourceUtilizationThresholds:
               thresholds:
-                cpu: 30
-                memory: 20
-                pods: 30
+                cpu: 20
+                memory: 10
+                pods: 20
               targetThresholds:
-                cpu: 45
-                memory: 30
-                pods: 35
+                cpu: 50
+                memory: 50
+                pods: 50
     service:
       enabled: true
     serviceMonitor:
