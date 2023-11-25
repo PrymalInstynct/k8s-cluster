@@ -1,16 +1,19 @@
 ---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  # Pre Flux-Kustomizations
   - ./namespace.yaml
-  - ./amd-device-plugin/ks.yaml
-  - ./cilium/ks.yaml
-  - ./coredns/ks.yaml
-  - ./descheduler/ks.yaml
-  - ./external-secrets/ks.yaml
-  - ./intel-device-plugin/ks.yaml
-  - ./local-path-provisioner/ks.yaml
-  - ./metrics-server/ks.yaml
-  - ./multus-cni/ks.yaml
-  - ./node-feature-discovery/ks.yaml
-  - ./reloader/ks.yaml
+  # Flux-Kustomizations
+  # - ./amd-device-plugin/ks.yaml
+  # - ./cilium/ks.yaml
+  # - ./coredns/ks.yaml
+  # - ./descheduler/ks.yaml
+  # - ./external-secrets/ks.yaml
+  # - ./intel-device-plugin/ks.yaml
+  # - ./local-path-provisioner/ks.yaml
+  # - ./metrics-server/ks.yaml
+  # - ./multus-cni/ks.yaml
+  # - ./node-feature-discovery/ks.yaml
+  # - ./reloader/ks.yaml
