@@ -5,5 +5,4 @@ kind: Kustomization
 namespace: vm
 resources:
   - ./fedora39.yaml
-  - ./fedora39_block.yaml
   - ./testvm.yaml

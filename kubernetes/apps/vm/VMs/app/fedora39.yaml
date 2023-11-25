@@ -9,15 +9,15 @@ metadata:
 spec:
   dataVolumeTemplates:
   - metadata:
-      name: fedora-dv
+      name: fedora-dv-block
     spec:
       pvc:
         accessModes:
-        - ReadWriteMany
+        - ReadWriteOnce
         resources:
           requests:
             storage: 20G
-        storageClassName: ceph-filesystem
+        storageClassName: ceph-block
       source:
         http:
           url: "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Cloud/x86_64/images/Fedora-Cloud-Base-39-1.5.x86_64.raw.xz"
@@ -47,7 +47,7 @@ spec:
       terminationGracePeriodSeconds: 0
       volumes:
       - dataVolume:
-          name: fedora-dv
+          name: fedora-dv-block
         name: disk0
       - cloudInitNoCloud:
           userData: |
