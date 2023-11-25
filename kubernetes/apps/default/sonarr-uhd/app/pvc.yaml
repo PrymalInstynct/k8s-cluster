@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: sonarr-uhd-config
-  namespace: default
+
 spec:
   accessModes: ["ReadWriteMany"]
   resources:
