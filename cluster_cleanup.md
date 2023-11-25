@@ -1,4 +1,4 @@
-udo -i
+sudo -i
 
 sed -i '/deb cdrom/d' /etc/apt/sources.list && apt update && apt install -y kitty-terminfo vim curl gdisk parted && echo "zimmermanc ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/zimmermanc
 
