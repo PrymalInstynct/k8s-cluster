@@ -9,5 +9,5 @@ resources:
   - ./kube-state-metrics/ks.yaml
   - ./kubernetes-dashboard/ks.yaml
   - ./smartctl-exporter/ks.yaml
-  - ./thanos/ks.yaml
+  # - ./thanos/ks.yaml
   - ./unpoller/ks.yaml
