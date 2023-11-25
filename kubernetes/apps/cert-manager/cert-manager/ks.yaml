@@ -1,10 +1,12 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.prymal.info/kustomize.toolkit.fluxcd.io/kustomization_v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: cluster-apps-cert-manager
   namespace: flux-system
 spec:
+  targetNamespace: cert-manager
   path: ./kubernetes/apps/cert-manager/cert-manager/app
   prune: true
   sourceRef:
@@ -15,12 +17,14 @@ spec:
   retryInterval: 1m
   timeout: 5m
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.prymal.info/kustomize.toolkit.fluxcd.io/kustomization_v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: cluster-apps-cert-manager-issuers
   namespace: flux-system
 spec:
+  targetNamespace: cert-manager
   dependsOn:
     - name: cluster-apps-cert-manager
   path: ./kubernetes/apps/cert-manager/cert-manager/issuers

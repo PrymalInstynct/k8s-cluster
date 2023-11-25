@@ -6,6 +6,7 @@ metadata:
   name: cluster-apps-adguard-sync
   namespace: flux-system
 spec:
+  targetNamespace: default
   path: ./kubernetes/apps/default/adguard-sync/app
   prune: true
   sourceRef:

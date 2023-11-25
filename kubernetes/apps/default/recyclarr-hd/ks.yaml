@@ -6,6 +6,7 @@ metadata:
   name: cluster-apps-recyclarr-hd
   namespace: flux-system
 spec:
+  targetNamespace: default
   dependsOn:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-radarr-hd
