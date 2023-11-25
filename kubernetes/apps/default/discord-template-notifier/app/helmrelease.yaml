@@ -1,9 +1,9 @@
 ---
+# yaml-language-server: $schema=http://kubernetes-schemas.prymal.info/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: discord-template-notifier
-
 spec:
   interval: 15m
   chart:
