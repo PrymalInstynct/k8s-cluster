@@ -3,14 +3,17 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-jellyfin
+  name: &app jellyfin
   namespace: flux-system
 spec:
   targetNamespace: default
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
   dependsOn:
-    - name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-amd-device-plugin
+    - name: external-secrets-stores
+    - name: rook-ceph-cluster
+    - name: amd-device-plugin
   path: ./kubernetes/apps/default/jellyfin/app
   prune: true
   sourceRef:

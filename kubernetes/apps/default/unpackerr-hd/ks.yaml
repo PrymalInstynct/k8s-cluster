@@ -3,14 +3,17 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-unpackerr-hd
+  name: &app unpackerr-hd
   namespace: flux-system
 spec:
   targetNamespace: default
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
   dependsOn:
-    - name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-radarr-hd
-    - name: cluster-apps-sonarr-hd
+    - name: external-secrets-stores
+    - name: radarr-hd
+    - name: sonarr-hd
   path: ./kubernetes/apps/default/unpackerr-hd/app
   prune: true
   sourceRef:
