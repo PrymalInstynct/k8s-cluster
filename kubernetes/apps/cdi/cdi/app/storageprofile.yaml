@@ -3,7 +3,7 @@ apiVersion: cdi.kubevirt.io/v1beta1
 kind: StorageProfile
 metadata:
   name: ceph-block
-  namespace: &namespace cdi
+  namespace: cdi
 spec:
   claimPropertySets:
   - accessModes:
@@ -15,7 +15,7 @@ apiVersion: cdi.kubevirt.io/v1beta1
 kind: StorageProfile
 metadata:
   name: ceph-bucket
-  namespace: *namespace
+  namespace: cdi
 spec:
   claimPropertySets:
   - accessModes:
@@ -28,7 +28,7 @@ apiVersion: cdi.kubevirt.io/v1beta1
 kind: StorageProfile
 metadata:
   name: ceph-filesystem
-  namespace: *namespace
+  namespace: cdi
 spec:
   claimPropertySets:
   - accessModes:
@@ -41,7 +41,7 @@ apiVersion: cdi.kubevirt.io/v1beta1
 kind: StorageProfile
 metadata:
   name: local-path
-  namespace: *namespace
+  namespace: cdi
 spec:
   claimPropertySets:
   - accessModes:
@@ -53,7 +53,7 @@ apiVersion: cdi.kubevirt.io/v1beta1
 kind: StorageProfile
 metadata:
   name: media
-  namespace: *namespace
+  namespace: cdi
 spec:
   claimPropertySets:
   - accessModes:
