@@ -178,3 +178,16 @@ endpoints:
       - "[STATUS] == 200"
     alerts:
       - type: discord
+  - name: flux-webhook
+    group: "Web - External"
+    url: https://flux-webhook.prymal.info
+    interval: 1m
+    ui:
+      hide-hostname: true
+      hide-url: true
+    client:
+      dns-resolver: tcp://1.1.1.1:53
+    conditions:
+      - "[STATUS] == 404"
+    alerts:
+      - type: discord
